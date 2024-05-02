@@ -3,11 +3,11 @@ import SearchIcon from "@mui/icons-material/Search";
 // import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 
 interface SearchBarProps {
-  searchValSetter: React.Dispatch<React.SetStateAction<string>>;
+  setter: React.Dispatch<React.SetStateAction<string>>;
   searchVal: string;
 }
 
-const SearchBar = () => {
+const SearchBar = ({ setter, searchVal }: SearchBarProps) => {
   return (
     <TextField
       placeholder="Search"
@@ -15,8 +15,8 @@ const SearchBar = () => {
       variant="outlined"
       fullWidth
       size="small"
-      //   onChange={}
-      //   value={}
+      onChange={(e) => setter(e.target.value)}
+      value={searchVal}
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">
