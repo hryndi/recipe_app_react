@@ -9,23 +9,21 @@ export const useRecipe = () => {
   const API_ID: string = "c48fab7e";
   const requestLink: string = `https://api.edamam.com/api/recipes/v2?type=any&q=${searchVal}&app_id=${API_ID}&app_key=${API_KEY}`;
 
-  const fetchRecipe = async () => {
+  const fetchRecipe = useCallback(async () => {
     try {
       const response = await fetch(requestLink);
       if (!response.ok) {
         throw new Error("Response was not ok");
       }
       const data: TFetchedRecepies = await response.json();
-      //   setDataArr([data]);
-      console.log(dataArr);
+      setDataArr([data]);
     } catch (error) {
       console.error(error);
     }
-  };
+  } , [requestLink]);
 
-  const FetchRecipeTimeout = setTimeout(fetchRecipe, 1000);
-  useEffect(() => {
-    return clearTimeout(FetchRecipeTimeout);
-  }, [requestLink]);
-  return { setSearchVal, searchVal };
+  useEffect(()=>{
+    fetchRecipe();
+  }, [fetchRecipe, searchVal]);
+  return { setSearchVal, searchVal , fetchRecipe};
 };

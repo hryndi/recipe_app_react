@@ -1,5 +1,6 @@
 import { IconButton, InputAdornment, TextField } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
+import { useRecipe } from "../hooks/useRecipe";
 // import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 
 interface SearchBarProps {
@@ -8,6 +9,7 @@ interface SearchBarProps {
 }
 
 const SearchBar = () => {
+  const {setSearchVal , searchVal} = useRecipe();
   return (
     <TextField
       placeholder="Search"
@@ -15,8 +17,8 @@ const SearchBar = () => {
       variant="outlined"
       fullWidth
       size="small"
-      //   onChange={}
-      //   value={}
+        onChange={e=>setSearchVal(e.target.value)}
+        value={searchVal}
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">
