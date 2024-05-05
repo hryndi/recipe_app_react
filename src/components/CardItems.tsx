@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { TFetchedRecepies } from "../types";
 
 interface CardItemsProps {
-  dataArr: TFetchedRecepies;
+  dataArr: TFetchedRecepies | null;
 }
 
 const CardItems = ({ dataArr }: CardItemsProps) => {
@@ -17,15 +17,15 @@ const CardItems = ({ dataArr }: CardItemsProps) => {
         Food
       </Typography>
 
-      {dataArr.hits.map((item) => {
+      {dataArr?.hits.map((item) => (
         <ul>
           <li>{item.recipe.label}</li>
           <li>will</li>
           <li>be</li>
           <li>displayed</li>
           <li>hier</li>
-        </ul>;
-      })}
+        </ul>
+      ))}
     </Card>
   );
 };
