@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import { TFetchedRecepies } from "../types";
+import { TFetchedRecepies, TDataState, HitsObj } from "../types";
 
 export const useRecipe = () => {
   const [searchVal, setSearchVal] = useState<string>("chicken");
-  const [dataArr, setDataArr] = useState<TFetchedRecepies[]>([]);
+  const [dataArr, setDataArr] = useState<HitsObj[] | null>([]);
 
   const API_KEY: string = "8fc34999de0a843489c85f03a4cb3c85";
   const API_ID: string = "c48fab7e";
@@ -15,15 +15,21 @@ export const useRecipe = () => {
       if (!response.ok) {
         throw new Error("Response was not ok");
       }
+      // can i map items from fetch, when i setting my items?
       const data: TFetchedRecepies = await response.json();
-      setDataArr([data]);
+      setDataArr(data.hits);
+      console.log(dataArr);
     } catch (error) {
       console.error(error);
     }
-  } , [requestLink]);
+  }, [requestLink]);
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchRecipe();
+    // console.log(dataArr);
   }, [fetchRecipe, searchVal]);
-  return { setSearchVal, searchVal , fetchRecipe};
+  useEffect(() => {
+    console.log(dataArr);
+  }, [fetchRecipe]);
+  return { setSearchVal, searchVal, fetchRecipe, dataArr };
 };

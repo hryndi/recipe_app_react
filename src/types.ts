@@ -3,7 +3,14 @@ export type TFetchedRecepies = {
   to: number;
   count: number;
   _links: Links;
-  hits: HitsObj;
+  hits: HitsObj[];
+};
+export type TDataState = {
+  calories: number;
+  images: RecipeImages;
+  ingredientLines: string[];
+  label: string;
+  mealType: string;
 };
 
 interface Links {
@@ -13,7 +20,7 @@ interface Links {
   };
 }
 
-interface HitsObj {
+export interface HitsObj {
   recipe: TRecipeObj;
   links: RecipeLinks;
 }
