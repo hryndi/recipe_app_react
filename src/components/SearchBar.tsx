@@ -4,12 +4,12 @@ import { useRecipe } from "../hooks/useRecipe";
 // import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 
 interface SearchBarProps {
-  searchValSetter: React.Dispatch<React.SetStateAction<string>>;
+  setter: React.Dispatch<React.SetStateAction<string>>;
   searchVal: string;
 }
 
 const SearchBar = () => {
-  const {setSearchVal , searchVal} = useRecipe();
+  const { setSearchVal, searchVal } = useRecipe();
   return (
     <TextField
       placeholder="Search"
@@ -17,8 +17,8 @@ const SearchBar = () => {
       variant="outlined"
       fullWidth
       size="small"
-        onChange={e=>setSearchVal(e.target.value)}
-        value={searchVal}
+      onChange={(e) => setSearchVal(e.target.value)}
+      value={searchVal}
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">
