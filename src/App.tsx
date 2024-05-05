@@ -4,11 +4,11 @@ import SearchBar from "./components/SearchBar";
 import { useRecipe } from "./hooks/useRecipe";
 
 function App() {
-  const { setSearchVal, searchVal } = useRecipe();
+  const { setSearchVal, searchVal, dataArr } = useRecipe();
   return (
     <Box component="main">
       <SearchBar setter={setSearchVal} searchVal={searchVal} />
-      <CardItems />
+      <CardItems dataArr={dataArr} />
     </Box>
   );
 }
