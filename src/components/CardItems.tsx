@@ -3,21 +3,21 @@ import ReactImage from "../assets/react-img.svg";
 import CardMedia from "@mui/material/CardMedia";
 // import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { HitsObj } from "../types";
+import { TFetchedRecepies } from "../types";
 
 interface CardItemsProps {
-  dataArr: HitsObj[] | null;
+  dataArr: TFetchedRecepies;
 }
 
 const CardItems = ({ dataArr }: CardItemsProps) => {
   return (
     <Card sx={{ maxWidth: 250 }}>
       {/* <CardMedia image={ReactImage} component="svg" height={200} width={200} /> */}
-      {/* <Typography gutterBottom variant="h5" component="div">
+      <Typography gutterBottom variant="h5" component="div">
         Food
-      </Typography> */}
+      </Typography>
 
-      {dataArr.map((item) => {
+      {dataArr.hits.map((item) => {
         <ul>
           <li>{item.recipe.label}</li>
           <li>will</li>

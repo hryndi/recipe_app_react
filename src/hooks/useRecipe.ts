@@ -3,7 +3,7 @@ import { TFetchedRecepies, TDataState, HitsObj } from "../types";
 
 export const useRecipe = () => {
   const [searchVal, setSearchVal] = useState<string>("chicken");
-  const [dataArr, setDataArr] = useState<HitsObj[] | null>([]);
+  const [dataArr, setDataArr] = useState<TFetchedRecepies | null>();
 
   const API_KEY: string = "8fc34999de0a843489c85f03a4cb3c85";
   const API_ID: string = "c48fab7e";
@@ -17,7 +17,7 @@ export const useRecipe = () => {
       }
       // can i map items from fetch, when i setting my items?
       const data: TFetchedRecepies = await response.json();
-      setDataArr(data.hits);
+      setDataArr(data);
       console.log(dataArr);
     } catch (error) {
       console.error(error);

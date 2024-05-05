@@ -8,8 +8,8 @@ interface SearchBarProps {
   searchVal: string;
 }
 
-const SearchBar = () => {
-  const { setSearchVal, searchVal } = useRecipe();
+const SearchBar = ({ setter, searchVal }: SearchBarProps) => {
+  // const { setSearchVal, searchVal } = useRecipe();
   return (
     <TextField
       placeholder="Search"
@@ -17,7 +17,7 @@ const SearchBar = () => {
       variant="outlined"
       fullWidth
       size="small"
-      onChange={(e) => setSearchVal(e.target.value)}
+      onChange={(e) => setter(e.target.value)}
       value={searchVal}
       InputProps={{
         startAdornment: (
