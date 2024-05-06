@@ -91,9 +91,10 @@ const CardItems = ({ dataArr }: CardItemsProps) => {
 
               <Stack
                 alignItems={"center"}
+                // justifyContent={"center"}
                 direction="row"
                 flexWrap={"wrap"}
-                gap={0.5}
+                gap={0.6}
                 spacing={1}
                 padding={1}
                 fontWeight={600}
@@ -101,6 +102,7 @@ const CardItems = ({ dataArr }: CardItemsProps) => {
               >
                 <Chip
                   sx={{
+                    marginLeft: "0 !important",
                     "& .MuiSvgIcon-root": {
                       color: "#4f8cc9",
                     },
@@ -116,6 +118,7 @@ const CardItems = ({ dataArr }: CardItemsProps) => {
                 />
                 <Chip
                   sx={{
+                    marginLeft: "0 !important",
                     "& .MuiSvgIcon-root": {
                       color: "#ff0099",
                     },
@@ -131,6 +134,7 @@ const CardItems = ({ dataArr }: CardItemsProps) => {
                 />
                 <Chip
                   sx={{
+                    marginLeft: "0 !important",
                     "& .MuiChip-label": {
                       fontSize: "1rem",
                       color: "#f90000",
@@ -143,6 +147,7 @@ const CardItems = ({ dataArr }: CardItemsProps) => {
                 {item.recipe.dietLabels.map((item) => (
                   <Chip
                     sx={{
+                      marginLeft: "0 !important",
                       "& .MuiChip-label": {
                         fontSize: "0.85rem",
                         color: "#26c335",
@@ -157,6 +162,7 @@ const CardItems = ({ dataArr }: CardItemsProps) => {
                 {item.recipe.mealType.map((item) => (
                   <Chip
                     sx={{
+                      marginLeft: "0 !important",
                       "& .MuiChip-label": {
                         fontSize: "0.85rem",
                         color: "#d88cfe",
@@ -170,6 +176,7 @@ const CardItems = ({ dataArr }: CardItemsProps) => {
                 {item.recipe.cuisineType.map((item) => (
                   <Chip
                     sx={{
+                      marginLeft: "0 !important",
                       "& .MuiChip-label": {
                         fontSize: "0.85rem",
                         color: "#ee8585",

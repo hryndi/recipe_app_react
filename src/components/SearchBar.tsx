@@ -13,9 +13,10 @@ const FlexWrapp = styled.div`
 interface SearchBarProps {
   setter: React.Dispatch<React.SetStateAction<string>>;
   searchVal: string;
+  fetchFunc: () => void;
 }
 
-const SearchBar = ({ setter, searchVal }: SearchBarProps) => {
+const SearchBar = ({ setter, fetchFunc, searchVal }: SearchBarProps) => {
   // const { setSearchVal, searchVal } = useRecipe();
   return (
     <FlexWrapp>
@@ -44,7 +45,9 @@ const SearchBar = ({ setter, searchVal }: SearchBarProps) => {
           // ),
         }}
       />
-      <Button variant="contained">Search</Button>
+      <Button variant="contained" onClick={fetchFunc}>
+        Search
+      </Button>
     </FlexWrapp>
   );
 };

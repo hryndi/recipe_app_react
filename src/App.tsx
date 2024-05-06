@@ -4,10 +4,10 @@ import SearchBar from "./components/SearchBar";
 import { useRecipe } from "./hooks/useRecipe";
 
 function App() {
-  const { setSearchVal, searchVal, dataArr } = useRecipe();
+  const { setSearchVal, fetchRecipe, searchVal, dataArr } = useRecipe();
   return (
     <Box padding={2} component="main">
-      <SearchBar setter={setSearchVal} searchVal={searchVal} />
+      <SearchBar fetchFunc={fetchRecipe} setter={setSearchVal} searchVal={searchVal} />
       <CardItems dataArr={dataArr} />
     </Box>
   );
