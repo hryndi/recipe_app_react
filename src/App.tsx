@@ -6,7 +6,7 @@ import { useRecipe } from "./hooks/useRecipe";
 function App() {
   const { setSearchVal, searchVal, dataArr } = useRecipe();
   return (
-    <Box component="main">
+    <Box padding={2} component="main">
       <SearchBar setter={setSearchVal} searchVal={searchVal} />
       <CardItems dataArr={dataArr} />
     </Box>
