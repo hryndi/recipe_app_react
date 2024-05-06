@@ -27,7 +27,7 @@ export const useRecipe = () => {
   useEffect(() => {
     fetchRecipe();
     // console.log(dataArr);
-  }, [fetchRecipe, searchVal]);
+  }, []);
   useEffect(() => {
     console.log(dataArr);
   }, [fetchRecipe]);
