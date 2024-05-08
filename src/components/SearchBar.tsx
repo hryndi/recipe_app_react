@@ -2,12 +2,12 @@ import { IconButton, InputAdornment, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
 import styled from "@emotion/styled";
 import SearchIcon from "@mui/icons-material/Search";
-import { useRecipe } from "../hooks/useRecipe";
-// import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
+import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 
 const FlexWrapp = styled.div`
   display: flex;
   gap: 1rem;
+  margin: 1rem;
 `;
 
 interface SearchBarProps {
@@ -27,6 +27,11 @@ const SearchBar = ({ setter, fetchFunc, searchVal }: SearchBarProps) => {
         fullWidth
         size="small"
         onChange={(e) => setter(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            fetchFunc();
+          }
+        }}
         value={searchVal}
         InputProps={{
           startAdornment: (
@@ -35,14 +40,11 @@ const SearchBar = ({ setter, fetchFunc, searchVal }: SearchBarProps) => {
             </InputAdornment>
           ),
 
-          // endAdornment: value && (
-          //   <IconButton
-          //     aria-label="toggle password visibility"
-          //     onClick={() => setValue("")}
-          //   >
-          //     <CancelRoundedIcon />
-          //   </IconButton>
-          // ),
+          endAdornment: searchVal && (
+            <IconButton aria-label="toggle password visibility" onClick={() => setter("")}>
+              <CancelRoundedIcon />
+            </IconButton>
+          ),
         }}
       />
       <Button variant="contained" onClick={fetchFunc}>
