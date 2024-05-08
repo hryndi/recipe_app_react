@@ -164,14 +164,3 @@ interface RecipeSub {
   daily: number;
   unit: string;
 }
-
-interface RecipeDigest {
-  label: string;
-  tag: string;
-  schemaOrgTag: string | null;
-  total: number;
-  hasRDI: boolean;
-  daily: number;
-  unit: string;
-  sub?: RecipeSub[];
-}
