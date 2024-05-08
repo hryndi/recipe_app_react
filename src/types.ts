@@ -154,13 +154,3 @@ interface TotalDaily {
   TOCPHA: DailyNutrient;
   VITK1: DailyNutrient;
 }
-
-interface RecipeSub {
-  label: string;
-  tag: string;
-  schemaOrgTag: string | null;
-  total: number;
-  hasRDI: boolean;
-  daily: number;
-  unit: string;
-}
